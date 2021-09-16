@@ -1,0 +1,49 @@
+enum Mood {
+  HAPPY
+  SAD
+  BLINDED_BY_RAGE
+}
+
+scalar Upload
+
+type Person {
+  id: ID!
+  name: String!
+  age: Int!
+  dogs: [Dog!]
+  favoriteFood: Food!
+  currentlyFeeling: Mood
+}
+
+type Food {
+  id: ID!
+  name: String!
+  caloriesPerServing: Int!
+}
+
+type Photo {
+  url: String!
+  width: Int!
+  height: Int!
+}
+
+type Dog {
+  id: ID!
+  name: String!
+  age: Int!
+  favoriteFood: Food
+  owner: Person!
+  photos: [Photo!]!
+}
+
+type Query {
+  dogs: [Dog!]!
+  dog(id: ID!): Dog
+  foods(maxCaloriesPerServing: Int): [Food!]!
+  people: [Person!]!
+  person(id: ID!): Person
+}
+
+type Mutation {
+  uploadDogPhoto(dogId: ID!, photo: Upload!): Dog
+}

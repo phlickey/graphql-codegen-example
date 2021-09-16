@@ -1,0 +1,10 @@
+fragment DogAge on Dog {
+  id
+  age
+}
+
+query GetSingleDogQuery($id: ID!) {
+  dog(id: $id) {
+    ...DogAge
+  }
+}

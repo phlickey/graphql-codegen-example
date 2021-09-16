@@ -1,0 +1,26 @@
+overwrite: true
+schema:
+  - ./source-files/schema/**/*.{gql,graphql}
+documents: "./source-files/documents/**/*.{gql,graphql,ts,tsx}"
+generates:
+  generated-files/server/defs.ts:
+    plugins:
+      - "typescript"
+      - "typescript-resolvers"
+  #     - "add"
+  #   config:
+  #     content:
+  #       - "type Upload = {fileName: string; contents: number[]}"
+  #     dedupeOperationSuffix: true
+  #     enumsAsTypes: true
+  #     scalars:
+  #       Upload: Upload
+  # generated-files/client/defs.ts:
+  #   plugins:
+  #     - "typescript"
+  #     - "typescript-operations"
+  # generated-files/client/react-example.tsx:
+  #   plugins:
+  #     - "typescript"
+  #     - "typescript-operations"
+  #     - "typescript-react-apollo"
